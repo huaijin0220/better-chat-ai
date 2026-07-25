@@ -4,9 +4,11 @@ on:
   push:
     paths:
       - "SKILL.md"
+      - "SKILL.en.md"
   pull_request:
     paths:
       - "SKILL.md"
+      - "SKILL.en.md"
 
 jobs:
   validate:
