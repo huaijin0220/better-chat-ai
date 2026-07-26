@@ -23,7 +23,13 @@ BRANCH_CONFIG = {
 
 
 def get_branch():
-    """Get the current branch name."""
+    """Get the current branch name, handling both push and PR events."""
+    event = os.environ.get("GITHUB_EVENT_NAME", "")
+    if event == "pull_request":
+        return os.environ.get("GITHUB_HEAD_REF", "unknown")
+    ref = os.environ.get("GITHUB_REF_NAME", "")
+    if ref:
+        return ref
     try:
         result = subprocess.run(
             ["git", "rev-parse", "--abbrev-ref", "HEAD"],
@@ -31,7 +37,7 @@ def get_branch():
         )
         return result.stdout.strip()
     except subprocess.CalledProcessError:
-        return os.environ.get("GITHUB_REF_NAME", "unknown")
+        return "unknown"
 
 
 def parse_frontmatter(content):
