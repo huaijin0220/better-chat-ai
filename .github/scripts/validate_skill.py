@@ -14,7 +14,6 @@ errors = []
 BRANCH_CONFIG = {
     "main":    ("SKILL.md", True, {"name", "description", "mode", "when_to_use"}, set()),
     "master":  ("SKILL.md", True, {"name", "description", "mode", "when_to_use"}, set()),
-    "en":      ("SKILL.md", True, {"name", "description", "mode", "when_to_use"}, set()),
     "codex":   ("SKILL.md", True, {"name", "description"}, {"mode", "when_to_use"}),
     "cursor":  (".cursor/rules/better-chat-ai.mdc", True, {"description", "alwaysApply"}, set()),
     "copilot": (".github/copilot-instructions.md", False, set(), set()),
