@@ -9,6 +9,10 @@
 - 多平台适配：Cursor（`.cursor/rules/*.mdc`）、GitHub Copilot（`.github/copilot-instructions.md`）、Windsurf（`.windsurf/rules/*.md`）
 - 各平台专用分支：`cursor`、`copilot`、`windsurf`
 
+### 移除
+
+- 删除 `en` 分支（英文版维护成本高，无实际使用场景）
+
 ## [1.2.0] - 2026-07-25
 
 ### 新增
