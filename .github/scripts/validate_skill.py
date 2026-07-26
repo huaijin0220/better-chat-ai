@@ -82,16 +82,9 @@ def validate_description(desc):
         errors.append("description is too short (min 20 chars recommended)")
 
 
-def get_skill_file(branch):
-    """Determine the SKILL file to validate based on branch."""
-    if branch == "en" and os.path.exists("SKILL.en.md"):
-        return "SKILL.en.md"
-    return "SKILL.md"
-
-
 def main():
     branch = get_branch()
-    skill_file = get_skill_file(branch)
+    skill_file = "SKILL.md"
     print(f"Validating {skill_file} on branch: {branch}")
 
     if not os.path.exists(skill_file):
@@ -132,8 +125,8 @@ def main():
                 f"Codex branch only allows 'name' and 'description'. "
                 f"Remove: {', '.join(sorted(extra))}"
             )
-    elif branch in ("main", "master", "en"):
-        # main and en should have mode: always and when_to_use
+    elif branch in ("main", "master"):
+        # main should have mode: always and when_to_use
         for field in MAIN_ONLY_FIELDS:
             if field not in fields:
                 errors.append(f"main branch should have '{field}' field")
